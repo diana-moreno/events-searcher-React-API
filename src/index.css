@@ -12,13 +12,32 @@ body {
 header {
   background-color: #ec3a49;
   color: white;
-  padding: 5rem 0;
+  padding: 3rem 0;
 }
 h1 {
   color: white;
   font-weight: 900;
+  letter-spacing: 0.7rem;
+  margin-bottom: 0;
+}
+form {
+  padding: 1.5rem 6rem;
+  background-color: #a39f9f;
 }
 .uk-button {
   width: 100%;
   background-color: #ec3a49;
+}
+.uk-card-title {
+  font-size: 1rem;
+  font-weight: bold;
+}
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.uk-card-small {
+  max-width: 400px;
 }

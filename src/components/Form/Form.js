@@ -3,7 +3,8 @@ import React , { Component } from 'react';
 class Form extends Component {
   state = {
     name: '',
-    category: ''
+    category: '',
+    location: ''
   }
 
   handleInfoData = e => {
@@ -23,29 +24,37 @@ class Form extends Component {
         onSubmit={this.handleSubmit}
       >
         <fieldset className='uk-fieldset'>
-          <legend className='uk-legend uk-text-center'> {/*legend crea un titulo para los campos de fieldset*/}
-            Search your event by name or category
-          </legend>
-          <div className='uk-column-1-3@m uk-margin'> {/*crea 3 columnas*/}
 
-            <div className='uk-margin' uk-margin='true'> {/*columna 1*/}
+          <div className='uk-column-1-4@m uk-margin-small-top' uk-margin='true'> {/*crea 3 columnas*/}
+
+            <div className='uk-margin-small' uk-margin='true'> {/*columna 1*/}
               <input
                 name='name'
                 className='uk-input'
                 type='text'
-                placeholder='Event name or city'
+                placeholder='Search by name'
                 onChange={this.handleInfoData}
               />
             </div>
 
-            <div className='uk-margin' uk-margin='true'>{/*columna 2*/}
+            <div className='uk-margin-small' uk-margin='true'> {/*columna 2*/}
+              <input
+                name='location'
+                className='uk-input'
+                type='text'
+                placeholder='Search by city or address'
+                onChange={this.handleInfoData}
+              />
+            </div>
+
+            <div className='uk-margin-small' uk-margin='true'>{/*columna 3*/}
               <select
                 name='category'
                 className='uk-select'
                 type='text'
                 onChange={this.handleInfoData}
               >
-                <option>-- Select category --</option>
+                <option value=''>-- Select category --</option>
                 {this.props.categories.map(category =>
                   <option
                     key={category.id}
@@ -55,7 +64,7 @@ class Form extends Component {
               </select>
             </div>
 
-            <div> {/*columna 3*/}
+            <div className='uk-margin-small' uk-margin='true'> {/*columna 4*/}
               <input
                 className='uk-button uk-button-danger'
                 type='submit'

@@ -7,9 +7,9 @@ const Event = ({event}) => { //event viene de props
   }
 
   return (
-    <div>
+    <div className='center'>
       <div className='uk-card-small uk-card-default'>
-        <div className='uk-card-media-top'>
+        <div className='uk-card-media-top uk-flex uk-flex-center'>
           {event.logo ? <img src={event.logo.url} alt={event.name} /> : null}
         </div>
 

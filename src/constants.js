@@ -4,5 +4,5 @@ const sort_by = 'date'
 
 export const API_URLS = {
   categories: `${BASE_API_URL}categories/?token=${API_TOKEN}`,
-  events: (search) => `${BASE_API_URL}events/search/?q=${search.name}&categories=${search.category}&sort_by=${sort_by}&token=${API_TOKEN}`
+  events: (search) => `${BASE_API_URL}events/search/?q=${search.name}&categories=${search.category}&location.address=${search.location}&sort_by=${sort_by}&token=${API_TOKEN}`
 }

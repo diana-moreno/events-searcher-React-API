@@ -8,7 +8,9 @@ import { API_URLS } from './constants';
 class App extends Component {
   state = {
     categories: [],
-    events: []
+    events: [],
+    loading: false,
+    searchIsDone: false
   }
 
   componentDidMount() {
@@ -24,11 +26,15 @@ class App extends Component {
   }
 
   getEvents = async (search) => {
+    // no tienes eventos de vuelta, 0 resultados
+    // handle cuando estas cargando eventos, que muestras
+    this.setState({ ...this.state, loading: true })
     let response = await axios(API_URLS.events(search)); //hace la consulta a la API y recoge la respuesta
-    console.log(response)
     this.setState({
       ...this.state,
       events: response.data.events, //from the API
+      loading: false,
+      searchIsDone: true
     })
   }
 
@@ -36,14 +42,22 @@ class App extends Component {
     return (
       <Fragment>
         <Header />
-        <div className='uk-container'>
           <Form
             categories={this.state.categories}
             getEvents={this.getEvents}
           />
-          <EventsList
-            events={this.state.events}
-          />
+        <div className='uk-container-fluid uk-margin'>
+          {this.state.loading
+            ? <div className="uk-flex uk-flex-column center uk-margin-medium-top">
+                <div uk-spinner="ratio: 3"></div>
+                <p>Loading...</p>
+              </div>
+            : <EventsList
+                events={this.state.events}
+              />
+          }
+          {this.state.searchIsDone && this.state.events.length === 0 && !this.state.loading
+            ? <p className="uk-position-center uk-margin-medium-top">There are no events.</p> : null}
         </div>
       </Fragment>
     );
