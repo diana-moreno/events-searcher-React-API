@@ -10,6 +10,7 @@ const EventsList = ({events}) => {
           event={event}
         />
       ))}
+
     </div>
   );
 }

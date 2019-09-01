@@ -8,13 +8,6 @@ const Event = ({event}) => { //event viene de props
   function convertDateFormat(stringStart, stringEnd) {
     const dateStart = stringStart.slice(0, 10).split('-').reverse().join('-');
     const dateEnd = stringEnd.slice(0, 10).split('-').reverse().join('-');
-/*    const hourStart = stringStart.slice(11, 16)
-    const hourEnd = stringEnd.slice(11, 16)*/
-/*    if(dateStart === dateEnd) {
-      return <span>{dateStart} {hourStart}-{hourEnd}</span>;
-    } else {
-      return <span>{dateStart} {hourStart}-{dateEnd} {hourEnd}</span>;
-    }*/
     return dateStart === dateEnd ? <span>Date: {dateStart}</span> : <span>Date: from {dateStart} to {dateEnd}</span>
    }
 
@@ -29,7 +22,6 @@ const Event = ({event}) => { //event viene de props
           <h3 className='uk-card-title'>{event.name.text}</h3>
           <p>{text}</p>
           <p>{convertDateFormat(event.start.local, event.end.local)}</p>
-
         </div>
 
         <div className='uk-card-footer'>

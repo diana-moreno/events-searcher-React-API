@@ -10,7 +10,8 @@ class App extends Component {
     categories: [],
     events: [],
     loading: false,
-    searchIsDone: false
+    searchIsDone: false,
+    location: []
   }
 
   componentDidMount() {
@@ -26,8 +27,6 @@ class App extends Component {
   }
 
   getEvents = async (search) => {
-    // no tienes eventos de vuelta, 0 resultados
-    // handle cuando estas cargando eventos, que muestras
     this.setState({ ...this.state, loading: true })
     let response = await axios(API_URLS.events(search)); //hace la consulta a la API y recoge la respuesta
     console.log(response)
@@ -38,6 +37,15 @@ class App extends Component {
       searchIsDone: true
     })
   }
+/*  getLocation = async (event) => {
+    console.log(event)
+    let responseLocation = await axios(API_URLS.location(event))
+    this.setState({
+      ...this.state,
+      location: responseLocation.data.address.address_1
+    })
+    console.log(this.state.location)
+  }*/
 
   render() {
     return (
