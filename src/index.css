@@ -41,14 +41,15 @@ form {
 .uk-card-small {
   max-width: 400px;
 }
-.fa-heart {
-  font-size: 2rem;
-  color: red;
-  font-weight: 600;
+.fas {
   cursor: pointer;
+  font-size: 2rem;
+  left: 0.5rem;
+  top: 0.5rem;
+}
+.fa-heart {
+  color: red;
 }
 .fa-plus {
-  font-size: 2rem;
   color: #cecece;
-  cursor: pointer;
 }

@@ -31,9 +31,9 @@ class Event extends Component { //event viene de props
   render() {
     return (
       <div className='center'>
-        <div className='uk-card-small uk-card-default'>
+        <div className='uk-card-small uk-card-default uk-position-relative'>
           <i className={this.state.favorite
-                          ? 'far fa-heart uk-position-absolute'
+                          ? 'fas fa-heart uk-position-absolute'
                           : "fas fa-plus uk-position-absolute"}
              title='Add to favorites'
              onClick={this.addToFavorites}></i>
