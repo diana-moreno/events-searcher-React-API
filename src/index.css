@@ -48,8 +48,12 @@ form {
   top: 0.5rem;
 }
 .fa-heart {
-  color: red;
+  color: #ec3a49;
 }
 .fa-plus {
   color: #cecece;
+}
+.button-favorites {
+  color: red;
+  background-color: white;
 }

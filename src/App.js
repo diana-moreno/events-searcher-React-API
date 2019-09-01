@@ -11,11 +11,23 @@ class App extends Component {
     events: [],
     loading: false,
     searchIsDone: false,
+    favorites: []
   }
 
   componentDidMount() {
     this.getCategories();
+
+    const favorites = localStorage.getItem('favorites')
+    this.setState({
+      favorites: favorites ? JSON.parse(favorites) : [], // lo convierte en un array de objetos
+    })
   }
+
+  // almacenar los datos cuando se añaden o eliminan eventos a favoritos
+  componentDidUpdate() {
+    localStorage.setItem('favorites', JSON.stringify(this.state.favorites))
+  }
+
 
   getCategories = async () => {
     let response = await axios.get(API_URLS.categories); // hace la consulta, el método get viene por defecto, se puede poner o no.
@@ -37,6 +49,14 @@ class App extends Component {
     })
   }
 
+  setFavorites = (event) => {
+    this.setState({
+      ...this.state,
+      favorites: [...this.state.favorites, event]
+    })
+    console.log(this.state.favorites)
+  }
+
   render() {
     return (
       <Fragment>
@@ -53,6 +73,7 @@ class App extends Component {
               </div>
             : <EventsList
                 events={this.state.events}
+                setFavorites={this.setFavorites}
               />
           }
           {this.state.searchIsDone && this.state.events.length === 0 && !this.state.loading

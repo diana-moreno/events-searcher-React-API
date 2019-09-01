@@ -24,8 +24,9 @@ class Event extends Component { //event viene de props
 
    addToFavorites = () => {
     this.setState({
-      favorite: true
+      favorite: this.state.favorite ? false : true
     })
+    this.props.setFavorites(this.props.event);
    }
 
   render() {

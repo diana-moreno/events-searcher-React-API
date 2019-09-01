@@ -25,7 +25,7 @@ class Form extends Component {
       >
         <fieldset className='uk-fieldset'>
 
-          <div className='uk-column-1-4@m uk-margin-small-top' uk-margin='true'> {/*crea 3 columnas*/}
+          <div className='uk-column-1-5@m uk-margin-small-top' uk-margin='true'>
 
             <div className='uk-margin-small' uk-margin='true'> {/*columna 1*/}
               <input
@@ -69,6 +69,14 @@ class Form extends Component {
                 className='uk-button uk-button-danger'
                 type='submit'
                 value='Search events'
+              />
+            </div>
+
+            <div className='uk-margin-small' uk-margin='true'> {/*columna 5*/}
+              <input
+                className='uk-button button-favorites'
+                value='favorites'
+                type='submit'
               />
             </div>
           </div>
