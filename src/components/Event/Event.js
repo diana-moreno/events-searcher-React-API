@@ -21,7 +21,10 @@ const Event = ({event}) => { //event viene de props
         <div className='uk-card-body uk-flex uk-flex-column uk-flex-middle uk-flex-between'>
           <h3 className='uk-card-title'>{event.name.text}</h3>
           <p>{text}</p>
-          <p>{convertDateFormat(event.start.local, event.end.local)}</p>
+          <div>
+            <p className='uk-text-bold'>{convertDateFormat(event.start.local, event.end.local)}</p>
+            <p className='uk-text-bold'>Location: {event.venue.address.city}, {event.venue.address.country}</p>
+          </div>
         </div>
 
         <div className='uk-card-footer'>

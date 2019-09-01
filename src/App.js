@@ -11,7 +11,6 @@ class App extends Component {
     events: [],
     loading: false,
     searchIsDone: false,
-    location: []
   }
 
   componentDidMount() {
@@ -37,15 +36,6 @@ class App extends Component {
       searchIsDone: true
     })
   }
-/*  getLocation = async (event) => {
-    console.log(event)
-    let responseLocation = await axios(API_URLS.location(event))
-    this.setState({
-      ...this.state,
-      location: responseLocation.data.address.address_1
-    })
-    console.log(this.state.location)
-  }*/
 
   render() {
     return (
