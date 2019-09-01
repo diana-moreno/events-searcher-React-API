@@ -30,6 +30,7 @@ class App extends Component {
     // handle cuando estas cargando eventos, que muestras
     this.setState({ ...this.state, loading: true })
     let response = await axios(API_URLS.events(search)); //hace la consulta a la API y recoge la respuesta
+    console.log(response)
     this.setState({
       ...this.state,
       events: response.data.events, //from the API
