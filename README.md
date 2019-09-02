@@ -4,7 +4,7 @@
   <img src="./img/events-searcher-React-API.png" width="500">
 </p>
 
-In this page you can obtain information about events of several categories. Project developed with React, layout applied with UIkit and data obtained from Eventbrite API.
+In this page you can obtain information about events of several categories and places. You can save in favourites all the events you have liked the most. Project developed with React, layout applied with UIkit and data obtained from Eventbrite API.
 
 ### **Features**
 
@@ -28,6 +28,7 @@ In this page you can obtain information about events of several categories. Proj
 
 ### **Resources**
 
+- Icons from [Font Awesome](https://fontawesome.com/icons?d=gallery).
 - For the data events I utilized an external API: [Eventbrite API](https://www.eventbrite.com/platform/api).
 - Layout and styles with [UIkit](https://getuikit.com)
 - To make queries to the API with [Axios](https://www.npmjs.com/package/axios), a package from NPM.
