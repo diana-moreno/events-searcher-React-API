@@ -11,7 +11,7 @@ In this page you can obtain information about events of several categories. Proj
 - The web allows to search events information with three optional criteria: the event name, the city, and the category which belongs.
 - The searcher finds matches in an external API (Eventbrite API).
 - The results are shown in an organized grid layout.
-- In every card event has included a 'More information' button to click in to open a new website with all the information about it.
+- In every card event has been included a 'More information' button to click in to open a new website with all the information about it.
 - There is an icon in the left top of every event to mark it as favorite.
 - The events are sincronized with the saved favorites when a new search is done showing a red heart.
 - Favorites kept saved even when the webpage is closed or reloaded.
