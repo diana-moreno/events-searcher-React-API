@@ -12,6 +12,9 @@ In this page you can obtain information about events of several categories. Proj
 - The searcher finds matches in an external API (Eventbrite API).
 - The results are shown in an organized grid layout.
 - In every card event has included a 'More information' button to click in to open a new website with all the information about it.
+- There is an icon in the left top of every event to mark it as favorite.
+- The events are sincronized with the saved favorites when a new search is done showing a red heart.
+- Favorites kept saved even when the webpage is closed or reloaded.
 
 
 ### **What I learned**
@@ -19,6 +22,8 @@ In this page you can obtain information about events of several categories. Proj
 - Obtain data from Eventbrite API and how to extend the default information.
 - Generate layout with UIkit classes.
 - Make queries to the API with NPM Axios through async functions.
+- Build a favourites section and syncronize them with new searches.
+- Save favourites data with LocalStorage.
 
 
 ### **Resources**
