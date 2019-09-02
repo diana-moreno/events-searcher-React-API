@@ -20,12 +20,12 @@ class Form extends Component {
 
   render() {
     return (
-      <form
+      <form className='uk-padding-small'
         onSubmit={this.handleSubmit}
       >
         <fieldset className='uk-fieldset'>
 
-          <div className='uk-column-1-5@m uk-margin-small-top' uk-margin='true'>
+          <div className='uk-column-1-5@m uk-column-1-3@s uk-margin-small-top' uk-margin='true'>
 
             <div className='uk-margin-small' uk-margin='true'> {/*columna 1*/}
               <input
