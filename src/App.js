@@ -11,7 +11,8 @@ class App extends Component {
     events: [],
     loading: false,
     searchIsDone: false,
-    favorites: []
+    favorites: [],
+    showFavorites: false
   }
 
   componentDidMount() {
@@ -45,17 +46,35 @@ class App extends Component {
       ...this.state,
       events: response.data.events, //from the API
       loading: false,
-      searchIsDone: true
+      searchIsDone: true,
+      showFavorites: false
     })
   }
 
-  setFavorites = (event) => {
+  addFavorites = (event) => {
     this.setState({
       ...this.state,
       favorites: [...this.state.favorites, event]
     })
-    console.log(this.state.favorites)
+    console.log(this.state.favorites.icon)
   }
+
+  deleteFavorites = (id) => {
+    let favorites = this.state.favorites.filter(favorite => favorite.id !== id)
+    console.log(favorites)
+    this.setState({
+      ...this.state,
+      favorites: favorites
+    })
+  }
+
+  showFavorites = () => {
+    this.setState({
+      ...this.state,
+      showFavorites: true
+    })
+  }
+
 
   render() {
     return (
@@ -64,6 +83,7 @@ class App extends Component {
           <Form
             categories={this.state.categories}
             getEvents={this.getEvents}
+            showFavorites={this.showFavorites}
           />
         <div className='uk-container-fluid uk-margin'>
           {this.state.loading
@@ -72,8 +92,11 @@ class App extends Component {
                 <p>Loading...</p>
               </div>
             : <EventsList
-                events={this.state.events}
-                setFavorites={this.setFavorites}
+                events={this.state.showFavorites
+                          ? this.state.favorites
+                          : this.state.events}
+                addFavorites={this.addFavorites}
+                deleteFavorites={this.deleteFavorites}
               />
           }
           {this.state.searchIsDone && this.state.events.length === 0 && !this.state.loading

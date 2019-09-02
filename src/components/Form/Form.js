@@ -76,7 +76,8 @@ class Form extends Component {
               <input
                 className='uk-button button-favorites'
                 value='favorites'
-                type='submit'
+                type='button'
+                onClick={this.props.showFavorites}
               />
             </div>
           </div>

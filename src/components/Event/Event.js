@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class Event extends Component { //event viene de props
   state = {
-    favorite: false
+    iconFavorite: false,
   }
 
   validateTextDescription() {
@@ -22,22 +22,33 @@ class Event extends Component { //event viene de props
     return dateStart === dateEnd ? <span>Date: {dateStart}</span> : <span>Date: from {dateStart} to {dateEnd}</span>
    }
 
-   addToFavorites = () => {
+  toogleToFavorites = () => {
     this.setState({
-      favorite: this.state.favorite ? false : true
+      iconFavorite: !this.state.iconFavorite ? true : false
     })
-    this.props.setFavorites(this.props.event);
-   }
+   /* [this.props.event.icon] = this.state.iconFavorite*/
+    this.addOrDeleteFavorites()
+  }
+
+  addOrDeleteFavorites = () => {
+    if(!this.state.iconFavorite) {
+      console.log('añade a favoritos')
+      this.props.addFavorites(this.props.event)
+    } else if(this.state.iconFavorite) {
+      console.log('elimina de favoritos')
+      this.props.deleteFavorites(this.props.event.id)
+    }
+  }
 
   render() {
     return (
       <div className='center'>
         <div className='uk-card-small uk-card-default uk-position-relative'>
-          <i className={this.state.favorite
+          <i className={this.state.iconFavorite
                           ? 'fas fa-heart uk-position-absolute'
                           : "fas fa-plus uk-position-absolute"}
              title='Add to favorites'
-             onClick={this.addToFavorites}></i>
+             onClick={this.toogleToFavorites}></i>
           <div className='uk-card-media-top uk-flex uk-flex-center'>
             {this.props.event.logo ? <img src={this.props.event.logo.url} alt={this.props.event.name} /> : null}
           </div>
