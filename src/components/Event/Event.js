@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 
 class Event extends Component { //event viene de props
-  state = {
-    iconFavorite: false,
-  }
+  state = {}
 
   validateTextDescription() {
     let {text} = this.props.event.description;
@@ -22,21 +20,11 @@ class Event extends Component { //event viene de props
     return dateStart === dateEnd ? <span>Date: {dateStart}</span> : <span>Date: from {dateStart} to {dateEnd}</span>
    }
 
-  toogleToFavorites = () => {
-    this.setState({
-      iconFavorite: !this.state.iconFavorite ? true : false
-    })
-   /* [this.props.event.icon] = this.state.iconFavorite*/
-    this.addOrDeleteFavorites()
-  }
-
   addOrDeleteFavorites = () => {
-    if(!this.state.iconFavorite) {
-      console.log('añade a favoritos')
-      this.props.addFavorites(this.props.event)
-    } else if(this.state.iconFavorite) {
-      console.log('elimina de favoritos')
-      this.props.deleteFavorites(this.props.event.id)
+    if(this.props.event.icon === 'a') {
+      this.props.addFavorites(this.props.event);
+    } else {
+      this.props.deleteFavorites(this.props.event)
     }
   }
 
@@ -44,11 +32,11 @@ class Event extends Component { //event viene de props
     return (
       <div className='center'>
         <div className='uk-card-small uk-card-default uk-position-relative'>
-          <i className={this.state.iconFavorite
-                          ? 'fas fa-heart uk-position-absolute'
-                          : "fas fa-plus uk-position-absolute"}
+          <i className={this.props.event.icon === 'a'
+                          ? "fas fa-plus uk-position-absolute"
+                          : 'fas fa-heart uk-position-absolute'}
              title='Add to favorites'
-             onClick={this.toogleToFavorites}></i>
+             onClick={this.addOrDeleteFavorites}></i>
           <div className='uk-card-media-top uk-flex uk-flex-center'>
             {this.props.event.logo ? <img src={this.props.event.logo.url} alt={this.props.event.name} /> : null}
           </div>

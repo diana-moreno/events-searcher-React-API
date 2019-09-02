@@ -41,7 +41,21 @@ class App extends Component {
   getEvents = async (search) => {
     this.setState({ ...this.state, loading: true })
     let response = await axios(API_URLS.events(search)); //hace la consulta a la API y recoge la respuesta
-    console.log(response)
+    response.data.events.forEach(elem => {
+      [elem.icon]= 'a'
+    })
+
+    // si hay favoritos, cambia el icono para señalar que ya estaban en favoritos y no se puedan volver a marcar
+    if(this.state.favorites) {
+      this.state.favorites.forEach(favorite => {
+        response.data.events.forEach(event => {
+          if(favorite.id === event.id) {
+            event.icon = 'f'
+          }
+        })
+      })
+    }
+
     this.setState({
       ...this.state,
       events: response.data.events, //from the API
@@ -52,16 +66,16 @@ class App extends Component {
   }
 
   addFavorites = (event) => {
+    event.icon = 'f'; //cambiar a f de favorito
     this.setState({
       ...this.state,
-      favorites: [...this.state.favorites, event]
+      favorites: [...this.state.favorites, event],
     })
-    console.log(this.state.favorites.icon)
   }
 
-  deleteFavorites = (id) => {
-    let favorites = this.state.favorites.filter(favorite => favorite.id !== id)
-    console.log(favorites)
+  deleteFavorites = (event) => {
+    event.icon = 'a';
+    let favorites = this.state.favorites.filter(favorite => favorite.id !== event.id)
     this.setState({
       ...this.state,
       favorites: favorites
