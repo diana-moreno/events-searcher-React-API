@@ -37,7 +37,7 @@ In this page you can obtain information about events of several categories and p
 
 ### **Usage**
 
-To run the game in local, I have included Serve, a local server from an NPM library.
+To run the game in local:
 
 - Install Node.js at the terminal if you haven't yet (https://nodejs.org/es/). Commands for Ubuntu:
 
